@@ -1,6 +1,6 @@
 # Look Out Your Windows
 
-Create a __Time-varying__ Wallpaper for your Windows/UNIX device!
+Create a __Time-varying__ Wallpaper for your Windows 10!
 
 <img src="https://user-images.githubusercontent.com/70506921/131011772-1ee3ad3b-4ad4-4b2f-86ca-469234616f3a.jpg" width="350" height="200" margin="5"/> <img src="https://user-images.githubusercontent.com/70506921/131011762-b4a5e378-464b-44b9-8308-a1e94d3069c8.jpg" width="350" height="200"/>
 <img src="https://user-images.githubusercontent.com/70506921/131011769-3f1e986a-9c9c-4523-97e9-f18bd4ac5127.jpg" width="350" height="200" margin="5"/> <img src="https://user-images.githubusercontent.com/70506921/131011776-686a98b6-dd65-47f6-b16a-36012450b847.jpg" width="350" height="200"/>
@@ -24,25 +24,23 @@ pip install -r requirements.txt
 pyinstaller --windowed ^
             --name=LookOutYourWindows ^
             --icon=.\icon.ico ^
-            --paths=c:\Users\user\Desktop\HiDT\Look-Out-Your-Windows\venv\Lib\site-packages ^
             --add-binary "icon.ico;." ^
-            --add-binary "images/styles/morning.jpg;images/styles" ^
-            --add-binary "images/styles/afternoon.jpg;images/styles" ^
-            --add-binary "images/styles/evening.jpg;images/styles" ^
-            --add-binary "images/styles/night.jpg;images/styles" ^
             --add-data "GUI/MainGui.ui;GUI" ^
+            --add-data "GUI/LoginGui.ui;GUI" ^
+            --add-data "GUI/AddGui.ui;GUI" ^
+            --add-data "GUI/RegisterGui.ui;GUI" ^
             --add-data "GUI/SaveGui.ui;GUI" ^
-            --add-data "configs/daytime.yaml;configs" ^
-            --add-data "trained_models/enhancer/enhancer.pth;trained_models/enhancer" ^
-            --add-data "trained_models/generator/daytime.pt;trained_models/generator" ^
-            WindowsGui.py
+            Main.py
 ```
 
 ## Getting Started
 1. Excute "LookOutYourWindows.exe".
 
 
-2. Press the 'Browse' button and select an image.
+2. Sign in to your account. If you don't have an account, please register.
+
+
+3. In mainYou can see the list of uploaded images.
 
 
 3. Press the 'Start' button and select save folder. If you want to save the image and folder, press a checkbox.
@@ -82,8 +80,6 @@ pyinstaller --windowed ^
 - You can use GPU to create images faster, but it still requires a lot of GPU memories.
 
 ## Rooms for improvement
-- Use the server GPU to create the image instead of the local GPU.
-
 - Select the resolution of the generated images.
 
 - Make candidate images to pick the favorite one.
